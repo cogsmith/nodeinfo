@@ -1,0 +1,12 @@
+{
+  "name": "@cogsmith/nodeinfo",
+  "version": "0.0.1",
+  "description": "NODE INFO",
+  "main": "app.js",
+  "keywords": [],
+  "author": "dac@cogsmith.com",
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^3.12.0"
+  }
+}
