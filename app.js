@@ -42,7 +42,8 @@ App.Init = function () {
 
     fastify.get('/infoline', (req,rep) => { rep.send(App.GetMsg(req)+"\n"); });
 
-    fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send(info); });
+    //fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send(info); });
+    fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send( JSON.stringify(info,null,2)+"\n" ); });
 
     fastify.get('/infopage', (req,rep) => { 
         let msg  = App.GetMsg(req);
