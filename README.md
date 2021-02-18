@@ -10,7 +10,7 @@ https://hub.docker.com/r/cogsmith/nodeinfo
 
 ---
 
-![SCREENSHOT](/screenshot.jpg?raw=true "SCREENSHOT")
+![SCREENSHOT](/screenshot.png?raw=true "SCREENSHOT")
 
 ---
 ### No Server Show Message And Exit
