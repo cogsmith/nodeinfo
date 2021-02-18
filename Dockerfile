@@ -5,4 +5,5 @@ COPY ["package.json","package-lock.json*","./"]
 RUN npm install --production
 COPY . .
 ENTRYPOINT ["node","app.js"]
-CMD ["80","0.0.0.0"]
+CMD ["_"]
+#CMD ["80","0.0.0.0"]
