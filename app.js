@@ -2,6 +2,8 @@ const fs   = require('fs');
 const os   = require('os'); 
 const proc = require('child_process');
 
+const fastify = require('fastify')({ logger:true });
+
 const App = { 
     Port:(process.argv[2] || '_'),        //Port:(process.env.APP_PORT || process.argv[2] || '_'), 
     IP:  (process.argv[3] || '0.0.0.0'),  //IP:  (process.env.APP_IP   || process.argv[3] || '0.0.0.0'), 
@@ -27,9 +29,7 @@ App.Init = function () {
 
     console.log(App.GetMsg());
 
-    if (App.Port=='_') { return; }
-
-    const fastify = require('fastify')({ logger:true });
+    if (App.Port=='_') { return; }    
 
     fastify.log.info('App.Init:Init');
 
