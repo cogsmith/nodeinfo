@@ -31,6 +31,8 @@ App.Init = function () {
 
     const fastify = require('fastify')({ logger:true });
 
+    fastify.log.info('App.Init:Init');
+
     fastify.addHook('onRequest', (req,rep,nxt) => { 
         let reqip = req.socket.remoteAddress;
         App.Requests++; 
@@ -54,12 +56,10 @@ App.Init = function () {
         rep.type('text/html').send(html); 
     });
 
-    fastify.listen(App.Port, App.IP, (err,address) => { if (err) { throw err; } else { App.Main(); } } )   
+    fastify.listen(App.Port, App.IP, (err,address) => { if (err) { throw err; } else { fastify.log.info('App.Init:Done'); App.Main(); } } );
 };
 
-App.Main = function () {
-    // console.log(App.GetMsg());
-};
+App.Main = function () { fastify.log.info('App.Main'); };
 
 App.GetMsg = function (req) { let msg = 'NODEINFO'; msg += ': '+require('os').hostname().toUpperCase()+' @ '; if (req) { msg += App.IP+':'+App.Port+' @ '+req.headers.host.toUpperCase()+' @ '; }; msg += new Date().toISOString(); return msg; };
 
@@ -85,11 +85,11 @@ App.GetInfoReq = function (req) {
     return info;
 };
 
-//let INFO = {NODE:'INFO'};
 App.GetInfo = function (req,rep) {
     let info = {
         DT: new Date().toISOString(),
         Request: App.GetInfoReq(req),
+        Reply: { Status:rep.statusCode, Headers:rep.getHeaders() },
         Requests: { Total:App.Requests, IP:App.Clients },
         Listen: { IP:App.IP, Port:App.Port },
         Docker: { Env:fs.existsSync('/.dockerenv') },
