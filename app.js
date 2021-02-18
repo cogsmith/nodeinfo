@@ -40,7 +40,7 @@ App.Init = function () {
 
     fastify.get('/', (req,rep) => { var url = '/infoline'; if (req.headers['user-agent'].startsWith('Mozilla')) { url='/infopage'; }; rep.redirect(url); });
 
-    fastify.get('/infoline', (req,rep) => { rep.send(App.GetMsg(req)); });
+    fastify.get('/infoline', (req,rep) => { rep.send(App.GetMsg(req)+"\n"); });
 
     fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send(info); });
 
