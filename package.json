@@ -1,6 +1,6 @@
 {
   "name": "@cogsmith/nodeinfo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Whoami Microservice: Node Runtime / Docker Instance / Host Environment",
   "main": "app.js",
   "keywords": [],

@@ -47,7 +47,7 @@ App.Init = function () {
     fastify.get('/infopage', (req,rep) => { 
         let msg  = App.GetMsg(req);
         let info = App.GetInfo(req,rep);
-        let head = "<title>"+msg+"</title><style>body { font-size:20px;font-family:monospace; }</style>";
+        let head = "<title>"+msg+"</title><style>body { font-size:15px;font-family:monospace; }</style>";
         let body = "<center>"+msg+"<hr>"+"</center><pre>\n"+JSON.stringify(info,null,2)+"</pre>"+"<center><hr>"+"<a href='/'>/</a><br><a href='/info'>INFO</a><br><a href='/infoline'>INFOLINE</a><br><a href='/infopage'>INFOPAGE</a></center>";
         let html = "<html><head>"+head+"</head><body>"+body+"</html>";
         rep.type('text/html').send(html); 
