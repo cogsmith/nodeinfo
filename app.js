@@ -61,7 +61,7 @@ App.Init = function () {
 
 App.Main = function () { fastify.log.info('App.Main'); };
 
-App.GetMsg = function (req) { let msg = 'NODEINFO'; msg += ': '+require('os').hostname().toUpperCase()+' @ '; if (req) { msg += App.IP+':'+App.Port+' @ '+req.headers.host.toUpperCase()+' @ '; }; msg += new Date().toISOString(); return msg; };
+App.GetMsg = function (req) { let msg = 'NODEINFO'; msg += ': '+require('os').hostname().toUpperCase()+' @ '+App.IP+':'+App.Port+' @ '; if (req) { msg += req.headers.host.toUpperCase()+' @ '; }; msg += new Date().toISOString(); return msg; };
 
 App.GetInfoReq = function (req) {
     let info = {};
