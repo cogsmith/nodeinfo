@@ -56,7 +56,7 @@ App.Init = function () {
         rep.type('text/html').send(html); 
     });
 
-    fastify.listen(App.Port, App.IP, (err,address) => { if (err) { throw err; } else { fastify.log.info('App.Init:Done'); App.Main(); } } );
+    fastify.listen(App.Port, App.IP, (err,address) => { if (err) { console.error(err); throw err; } else { fastify.log.info('App.Init:Done'); App.Main(); } } );
 };
 
 App.Main = function () { fastify.log.info('App.Main'); };
