@@ -5,8 +5,8 @@ const proc = require('child_process');
 const fastify = require('fastify')({ logger:true });
 
 const App = { 
-    Port:(process.argv[2] || '_'),        //Port:(process.env.APP_PORT || process.argv[2] || '_'), 
-    IP:  (process.argv[3] || '0.0.0.0'),  //IP:  (process.env.APP_IP   || process.argv[3] || '0.0.0.0'), 
+    Port:(process.env.PORT || '_'),        //Port:(process.env.APP_PORT || process.argv[2] || '_'), 
+    IP:  (process.env.PORT || '0.0.0.0'),  //IP:  (process.env.APP_IP   || process.argv[3] || '0.0.0.0'), 
     IP1:'127.0.0.1', IP4:'0.0.0.0', IP6:'::',
     Requests:0,
     Clients:{},
