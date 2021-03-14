@@ -13,7 +13,7 @@ const App = {
     Host: { IP:false }
 }
 
-App.DoInfoPage = function (req,eep) {
+App.DoInfoPage = function (req,rep) {
 	let msg  = App.GetMsg(req);
 	let info = App.GetInfo(req,rep);
 	let head = "<title>"+msg+"</title><style>body { font-size:15px;font-family:monospace; }</style>";
@@ -49,8 +49,11 @@ App.Init = function () {
         nxt(); 
     });
 
-    fastify.setNotFoundHandler((req,rep) => { App.DoInfoPage(req,rep); });
-    fastify.get('/infopage',   (req,rep) => { App.DoInfoPage(req,rep); });
+    // fastify.setNotFoundHandler((req,rep) => { App.DoInfoPage(req,rep); });
+    // fastify.get('/infopage',   (req,rep) => { App.DoInfoPage(req,rep); });
+
+    fastify.setNotFoundHandler(App.DoInfoPage);
+    fastify.get('/infopage',   App.DoInfoPage);
 
     fastify.get('/', (req,rep) => { var url = '/infoline'; if (req.headers['user-agent'].startsWith('Mozilla')) { url='/infopage'; }; rep.redirect(url); });
 
