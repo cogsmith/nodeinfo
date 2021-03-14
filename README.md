@@ -1,6 +1,7 @@
 # NODEINFO
 
-## Whoami Microservice: Node Runtime / Docker Instance / Host Environment
+## :memo: Whoami Microservice :memo:
+## Node Runtime / Docker Instance / Host Environment / Debug Info
 
 ---
 
