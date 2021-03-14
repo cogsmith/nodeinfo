@@ -14,12 +14,6 @@ const App = {
 }
 
 App.DoInfoPage = function (req,rep) {
-	req.log.trace('REQ:TRACE');
-	req.log.debug('REQ:DEBUG');
-	req.log.info( 'REQ:INFO' );
-	req.log.warn( 'REQ:WARN' );
-	req.log.error('REQ:ERROR');
-	req.log.fatal('REQ:FATAL');
 	let msg  = App.GetMsg(req);
 	let info = App.GetInfo(req,rep);
 	let head = "<title>"+msg+"</title><style>body { font-size:15px;font-family:monospace; }</style>";
