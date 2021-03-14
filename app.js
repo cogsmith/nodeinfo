@@ -14,6 +14,8 @@ const App = {
 }
 
 App.DoInfoPage = function (req,rep) {
+	req.log.info('REQ:INFO');
+	rep.log.warn('REP:WARN');
 	let msg  = App.GetMsg(req);
 	let info = App.GetInfo(req,rep);
 	let head = "<title>"+msg+"</title><style>body { font-size:15px;font-family:monospace; }</style>";
@@ -61,7 +63,6 @@ App.Init = function () {
 
     //fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send(info); });
     fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send( JSON.stringify(info,null,2)+"\n" ); });
-
 
     fastify.listen(App.Port, App.IP, (err,address) => { if (err) { console.error(err); throw err; } else { fastify.log.info('App.Init:Done'); App.Main(); } } );
 };
