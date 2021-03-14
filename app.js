@@ -2,7 +2,7 @@ const fs   = require('fs');
 const os   = require('os'); 
 const proc = require('child_process');
 
-const fastify = require('fastify')({ logger:true, trustProxy:true });
+const fastify = require('fastify')({ logger:{level:'trace'}, trustProxy:true });
 
 const App = { 
     Port:(process.env.PORT || '_'),        //Port:(process.env.APP_PORT || process.argv[2] || '_'), 
@@ -16,10 +16,10 @@ const App = {
 App.DoInfoPage = function (req,rep) {
 	req.log.trace('REQ:TRACE');
 	req.log.debug('REQ:DEBUG');
-	req.log.info('REQ:INFO');
-	req.log.warn('REQ:WARN');
+	req.log.info( 'REQ:INFO' );
+	req.log.warn( 'REQ:WARN' );
 	req.log.error('REQ:ERROR');
-	req.log.fatal('REQ:FATAL');	
+	req.log.fatal('REQ:FATAL');
 	let msg  = App.GetMsg(req);
 	let info = App.GetInfo(req,rep);
 	let head = "<title>"+msg+"</title><style>body { font-size:15px;font-family:monospace; }</style>";
