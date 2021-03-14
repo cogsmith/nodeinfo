@@ -15,6 +15,11 @@ const App = {
 
 App.DoInfoPage = function (req,rep) {
 	req.log.info('REQ:TRACE');
+	req.log.warn('REQ:DEBUG');
+	req.log.info('REQ:INFO');
+	req.log.info('REQ:WARN');
+	req.log.info('REQ:ERROR');
+	req.log.info('REQ:FATAL');	
 	rep.log.info('REP:TRACE');
 	rep.log.warn('REP:DEBUG');
 	rep.log.info('REP:INFO');
