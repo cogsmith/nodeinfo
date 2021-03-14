@@ -11,7 +11,16 @@ const App = {
     Requests:0,
     Clients:{},
     Host: { IP:false }
-}; 
+}
+
+App.DoInfoPage = function (req,eep) {
+	let msg  = App.GetMsg(req);
+	let info = App.GetInfo(req,rep);
+	let head = "<title>"+msg+"</title><style>body { font-size:15px;font-family:monospace; }</style>";
+	let body = "<center>"+msg+"<hr>"+"</center><pre>\n"+JSON.stringify(info,null,2)+"</pre>"+"<center><hr>"+"<a href='/'>/</a><br><a href='/info'>INFO</a><br><a href='/infoline'>INFOLINE</a><br><a href='/infopage'>INFOPAGE</a></center>";
+	let html = "<html><head>"+head+"</head><body>"+body+"</html>";
+	rep.type('text/html').send(html); 
+}
 
 App.Init = function () {
     // if (!App.IP) { App.IP = App.IP4; };
@@ -40,7 +49,7 @@ App.Init = function () {
         nxt(); 
     });
 
-    fastify.setNotFoundHandler((req,rep) => { rep.redirect('/infopage'); });
+    fastify.setNotFoundHandler((req,rep) => { DoInfoPage(req,rep); });
 
     fastify.get('/', (req,rep) => { var url = '/infoline'; if (req.headers['user-agent'].startsWith('Mozilla')) { url='/infopage'; }; rep.redirect(url); });
 
@@ -49,14 +58,7 @@ App.Init = function () {
     //fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send(info); });
     fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send( JSON.stringify(info,null,2)+"\n" ); });
 
-    fastify.get('/infopage', (req,rep) => { 
-        let msg  = App.GetMsg(req);
-        let info = App.GetInfo(req,rep);
-        let head = "<title>"+msg+"</title><style>body { font-size:15px;font-family:monospace; }</style>";
-        let body = "<center>"+msg+"<hr>"+"</center><pre>\n"+JSON.stringify(info,null,2)+"</pre>"+"<center><hr>"+"<a href='/'>/</a><br><a href='/info'>INFO</a><br><a href='/infoline'>INFOLINE</a><br><a href='/infopage'>INFOPAGE</a></center>";
-        let html = "<html><head>"+head+"</head><body>"+body+"</html>";
-        rep.type('text/html').send(html); 
-    });
+    fastify.get('/infopage', (req,rep) => { DoInfoPage(req,rep); });
 
     fastify.listen(App.Port, App.IP, (err,address) => { if (err) { console.error(err); throw err; } else { fastify.log.info('App.Init:Done'); App.Main(); } } );
 };
