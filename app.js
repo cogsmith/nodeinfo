@@ -2,7 +2,7 @@ const fs   = require('fs');
 const os   = require('os'); 
 const proc = require('child_process');
 
-const fastify = require('fastify')({ logger:true });
+const fastify = require('fastify')({ logger:true, trustProxy:true });
 
 const App = { 
     Port:(process.env.PORT || '_'),        //Port:(process.env.APP_PORT || process.argv[2] || '_'), 
