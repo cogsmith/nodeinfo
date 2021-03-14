@@ -40,6 +40,8 @@ App.Init = function () {
         nxt(); 
     });
 
+    fastify.setNotFoundHandler((req,rep) => { rep.redirect('/infopage'); });
+
     fastify.get('/', (req,rep) => { var url = '/infoline'; if (req.headers['user-agent'].startsWith('Mozilla')) { url='/infopage'; }; rep.redirect(url); });
 
     fastify.get('/infoline', (req,rep) => { rep.send(App.GetMsg(req)+"\n"); });
