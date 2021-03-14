@@ -4,9 +4,13 @@
 
 ---
 
-https://github.com/cogsmith/nodeinfo
+:octocat: https://github.com/cogsmith/nodeinfo
 
-https://hub.docker.com/r/cogsmith/nodeinfo
+🐳 https://hub.docker.com/r/cogsmith/nodeinfo
+
+---
+
+<h1><code><a href='../../blob/main/app.js'>[VIEW APP SOURCE CODE]</a></code></h1>
 
 ---
 
