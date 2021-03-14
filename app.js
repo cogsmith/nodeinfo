@@ -43,7 +43,7 @@ App.Init = function () {
     fastify.log.info('App.Init:Init');
 
     fastify.addHook('onRequest', (req,rep,nxt) => { 
-        let reqip = req.socket.remoteAddress;
+        let reqip = req.ip; // req.socket.remoteAddress;
         App.Requests++; 
         if (!App.Clients[reqip]) { App.Clients[reqip]=1; } else { App.Clients[reqip]++; }
         nxt(); 
@@ -73,7 +73,7 @@ App.GetMsg = function (req) { let msg = 'NODEINFO'; msg += ': '+require('os').ho
 App.GetInfoReq = function (req) {
     let info = {};
     if (req) { 
-        let reqip = req.socket.remoteAddress;
+        let reqip = req.ip; // let reqip = req.socket.remoteAddress;
         info = { 
             ID:req.id,
             IP:reqip,
