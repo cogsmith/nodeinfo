@@ -49,7 +49,7 @@ App.Init = function () {
         nxt(); 
     });
 
-    fastify.setNotFoundHandler((req,rep) => { DoInfoPage(req,rep); });
+    fastify.setNotFoundHandler((req,rep) => { App.DoInfoPage(req,rep); });
 
     fastify.get('/', (req,rep) => { var url = '/infoline'; if (req.headers['user-agent'].startsWith('Mozilla')) { url='/infopage'; }; rep.redirect(url); });
 
@@ -58,7 +58,7 @@ App.Init = function () {
     //fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send(info); });
     fastify.get('/info', (req,rep) => { let info = App.GetInfo(req,rep); rep.send( JSON.stringify(info,null,2)+"\n" ); });
 
-    fastify.get('/infopage', (req,rep) => { DoInfoPage(req,rep); });
+    fastify.get('/infopage', (req,rep) => { App.DoInfoPage(req,rep); });
 
     fastify.listen(App.Port, App.IP, (err,address) => { if (err) { console.error(err); throw err; } else { fastify.log.info('App.Init:Done'); App.Main(); } } );
 };
