@@ -1,6 +1,4 @@
-# NODEINFO
-
-## :memo: Whoami Microservice :memo:
+# 🔍 NODEINFO: Whoami Microservice 🔍
 ## Node Runtime / Docker Instance / Host Environment / Debug Info
 
 ---
@@ -11,11 +9,11 @@
 
 ---
 
-<h1><code><a href='../../blob/main/app.js'>[VIEW APP SOURCE CODE]</a></code></h1>
+<h1><code><a href='../../blob/main/app.js'>📄 [VIEW APP SOURCE CODE]</a></code></h1>
 
 ---
 
-![SCREENSHOT](https://raw.githubusercontent.com/cogsmith/nodeinfo/master/screenshot.png "SCREENSHOT")
+![SCREENSHOT](screenshot.png)
 
 ---
 ### No Server Show Message And Exit
