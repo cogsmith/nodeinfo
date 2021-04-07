@@ -1,6 +1,6 @@
 {
   "name": "nodeinfo",
-  "version": "0.1.0-dev",
+  "version": "0.1.0",
   "description": "Whoami Microservice: Node Runtime / Docker Instance / Host Environment",
   "main": "app.js",
   "keywords": [],
@@ -8,5 +8,6 @@
   "license": "MIT",
   "dependencies": {
     "fastify": "^3.12.0"
-  }
+  },
+  "versiontaglast": "0.1.0"
 }
