@@ -1,6 +1,6 @@
 {
   "name": "nodeinfo",
-  "version": "0.1.0",
+  "version": "0.1.1-dev",
   "description": "Whoami Microservice: Node Runtime / Docker Instance / Host Environment",
   "main": "app.js",
   "keywords": [],
