@@ -32,10 +32,6 @@
 
 ---
 
-<h1><code><a href='../../blob/main/app.js'>📄 [VIEW APP SOURCE CODE]</a></code></h1>
-
----
-
 ![SCREENSHOT](screenshot.png)
 
 ---
